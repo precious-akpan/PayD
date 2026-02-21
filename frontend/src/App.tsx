@@ -8,6 +8,7 @@ import HelpCenter from "./pages/HelpCenter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorFallback from "./components/ErrorFallback";
 import Settings from "./pages/Settings";
+import CustomReportBuilder from "./pages/CustomReportBuilder";
 import { useTranslation } from "react-i18next";
 
 function App() {
@@ -58,6 +59,14 @@ function App() {
                             }
                         >
                             <EmployeeEntry />
+                        </ErrorBoundary>
+                    }
+                />
+                <Route
+                    path="/reports"
+                    element={
+                        <ErrorBoundary fallback={<ErrorFallback />}>
+                            <CustomReportBuilder />
                         </ErrorBoundary>
                     }
                 />
