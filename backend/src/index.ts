@@ -5,6 +5,8 @@ import searchRoutes from './routes/searchRoutes';
 import paymentRoutes from './routes/paymentRoutes';
 import authRoutes from './routes/authRoutes';
 
+import { HealthController } from './controllers/healthController';
+
 const app = express();
 
 // Middleware
@@ -18,9 +20,7 @@ app.use('/api/search', searchRoutes);
 app.use('/api/payments', paymentRoutes);
 
 // Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
+app.get('/health', HealthController.getHealthStatus);
 
 // 404 handler
 app.use((req, res) => {
